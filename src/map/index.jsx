@@ -1,7 +1,7 @@
-import React, {useRef, useEffect} from 'react';
-import * as d3 from 'd3';
+import React, {useRef, useEffect} from 'react'
+import * as d3 from 'd3'
 import { positionText } from './utils.js'
-import './map.css';
+import './map.css'
 
 function Map({cities, routes, worldmap}) {
   const d3Container = useRef(null)
@@ -17,8 +17,8 @@ function Map({cities, routes, worldmap}) {
       const svg = d3.select(d3Container.current)
       const g = svg.select('g')
 
-      let projection = d3.geoMercator().translate([w/2, h/2]).scale(1180).center([-6,46]);
-      let path = d3.geoPath().projection(projection);
+      let projection = d3.geoMercator().translate([w/2, h/2]).scale(1180).center([-6,46])
+      let path = d3.geoPath().projection(projection)
 
       // draw map
       g.selectAll("path")
@@ -52,7 +52,7 @@ function Map({cities, routes, worldmap}) {
         })
         .style('stroke', '#fff')
         .style('stroke-width', 2)
-        .style('stroke-dasharray', 2);
+        .style('stroke-dasharray', 2)
 
         // add labels
         g.selectAll("text")
@@ -84,7 +84,7 @@ function Map({cities, routes, worldmap}) {
         ref={d3Container}
         viewBox={`0 0 ${w} ${h}`}
     ><g></g></svg>
-  );
+  )
 }
 
-export default Map;
+export default Map

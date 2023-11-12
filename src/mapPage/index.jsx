@@ -20,6 +20,7 @@ function MapPage() {
         setRoutes(routesData)
         setLoading(false)
       } catch (error) {
+        console.error(error)
       }
     }
     loadData()
