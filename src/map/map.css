@@ -1,0 +1,41 @@
+.continent {
+	fill: #f9e2ed;
+	stroke: #39A7FF;
+	stroke-width: 0.5;
+}
+
+.country-DE {
+	fill: #FFEED9;
+}
+.country-IT {
+	fill: #fce6ca;
+}
+.country-ES {
+	fill: #fff9d9;
+}
+.country-PT {
+	fill: #d9fbff;
+}
+.country-CZ {
+	fill: #edffd9;
+}
+
+.circles {
+	fill: red;
+}
+
+.labels {
+	font-family: sans-serif;
+	font-size: 10px;
+	fill: #1E5887;
+}
+
+.d3-component {
+	background-color: #c9e8fd;
+}
+
+.line {
+	stroke: '#fff';
+	stroke-width: 1;
+	stroke-dasharray: 2;
+}
