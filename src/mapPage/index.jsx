@@ -48,9 +48,10 @@ function MapPage() {
         <header className='header'>
           {text}
         </header>
-        {!!imageSource && 
+        {!!imageSource && <>
           <img className='cityPhoto' src={imageSource} />
-        }
+          <span className='cityLabel'>{selectedCity}</span>
+        </>}
       </section>
   </>}
   </>
