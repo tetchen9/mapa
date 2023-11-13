@@ -1,6 +1,16 @@
 .header {
+	color: #1E5887;
+}
+.leftPanel {
 	position: absolute;
 	top: 1em;
 	left: 3em;
-	color: #1E5887;
+}
+
+.cityPhoto {
+	width: 320px;
+	height: 420px;
+	object-fit: cover;
+	float: left;
+	margin: 0.6em 0;
 }

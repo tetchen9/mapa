@@ -8,6 +8,8 @@ function MapPage() {
   const [routes, setRoutes] = useState(null)
   const [worldmap, setWorldmap] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [selectedCity, setSelectedCity] = useState('')
+  const [imageSource, setImageSource] = useState('')
 
   useEffect(() => {
     async function loadData() {
@@ -26,23 +28,33 @@ function MapPage() {
     loadData()
   }, [])
 
-  const text = `Tania's trip to home continent.
-August - October 2023`
+  useEffect(() => {
+    //TODO: check if image exists
+    setImageSource(`${process.env.PUBLIC_URL}/citiesphotos/${selectedCity}.jpg`)
+  }, [selectedCity])
+
+  const text = `Tania's trip to home continent. August - October 2023`
 
   return (<>
     {loading && <div>Loading...</div>}
     {!!cities && <>
-        <Map
-          cities={cities}
-          routes={routes}
-          worldmap={worldmap}
-        />
+      <Map
+        cities={cities}
+        routes={routes}
+        worldmap={worldmap}
+        setSelectedCity={setSelectedCity}
+      />
+      <section className='leftPanel'>
         <header className='header'>
           {text}
         </header>
-      </>
-    }
-  </>)
+        {!!imageSource && 
+          <img className='cityPhoto' src={imageSource} />
+        }
+      </section>
+  </>}
+  </>
+  )
 }
 
 export default MapPage

@@ -3,7 +3,12 @@ import * as d3 from 'd3'
 import { positionText } from './utils.js'
 import './styles.css'
 
-function Map({cities, routes, worldmap}) {
+function Map({
+  cities, 
+  routes, 
+  worldmap,
+  setSelectedCity,
+}) {
   const d3Container = useRef(null)
 
   const w = 1200
@@ -63,18 +68,30 @@ function Map({cities, routes, worldmap}) {
         .attr("x", d => projection([d.textX || d.Longitude, d.textY || d.Lattitude])[0] + 3)
         .attr("y", d => projection([d.textX || d.Longitude, d.textY || d.Lattitude])[1] + 10)
         .attr("class","labels")
+        .on('mouseover', function(d) {
+          setSelectedCity(d.City)
+          d3.select(this).style("font-weight", 600)
+        })
+        .on('mouseout', function(d) {
+          d3.select(this).style("font-weight", 400)
+        })
 
-        // draw points
-        g.selectAll("circle")
-          .data(cities)
-          .enter()
-          .append("circle")
-          .attr("class","circles")
-          .attr("cx", d => projection([d.Longitude, d.Lattitude])[0])
-          .attr("cy", d => projection([d.Longitude, d.Lattitude])[1])
-          .attr("r", "1px")
-    }
+        drawPoints(g, projection)
+        
+      }
     }, [])
+    
+  // draw points
+  const drawPoints = (g, projection) => {
+    g.selectAll("circle")
+    .data(cities)
+    .enter()
+    .append("circle")
+    .attr("class","circles")
+    .attr("cx", d => projection([d.Longitude, d.Lattitude])[0])
+    .attr("cy", d => projection([d.Longitude, d.Lattitude])[1])
+    .attr("r", "1px")
+  }
    
   return (
     <svg
