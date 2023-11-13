@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react'
 import * as d3 from 'd3'
 import { positionText } from './utils.js'
-import './map.css'
+import './styles.css'
 
 function Map({cities, routes, worldmap}) {
   const d3Container = useRef(null)

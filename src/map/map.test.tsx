@@ -1,5 +1,4 @@
 import React from 'react';
-import Map from '.';
 import { positionText } from './utils.js'
 
 const cities = [{
