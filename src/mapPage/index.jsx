@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import * as d3 from 'd3'
-import Map from './../map'
+import Map from 'map'
 import './styles.css'
+
+const title = `Tania's trip to home continent. August - October 2023`
 
 function MapPage() {
   const [cities, setCities] = useState(null)
@@ -9,31 +11,26 @@ function MapPage() {
   const [worldmap, setWorldmap] = useState(null)
   const [loading, setLoading] = useState(true)
   const [selectedCity, setSelectedCity] = useState('')
-  const [imageSource, setImageSource] = useState('')
+
+  const imageSource =  `${process.env.PUBLIC_URL}/citiesphotos/${selectedCity}.jpg`
 
   useEffect(() => {
-    async function loadData() {
-      try {
-        const worldmapData = await d3.json('countries.geojson')
-        const citiesData = await d3.csv('cities.csv')
-        const routesData = await d3.csv('routes.csv')
-        setWorldmap(worldmapData)
-        setCities(citiesData)
-        setRoutes(routesData)
-        setLoading(false)
-      } catch (error) {
-        console.error(error)
-      }
-    }
     loadData()
   }, [])
 
-  useEffect(() => {
-    //TODO: check if image exists
-    setImageSource(`${process.env.PUBLIC_URL}/citiesphotos/${selectedCity}.jpg`)
-  }, [selectedCity])
-
-  const text = `Tania's trip to home continent. August - October 2023`
+  async function loadData() {
+    try {
+      const worldmapData = await d3.json('countries.geojson')
+      const citiesData = await d3.csv('cities.csv')
+      const routesData = await d3.csv('routes.csv')
+      setWorldmap(worldmapData)
+      setCities(citiesData)
+      setRoutes(routesData)
+      setLoading(false)
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (<>
     {loading && <div>Loading...</div>}
@@ -46,9 +43,9 @@ function MapPage() {
       />
       <section className='leftPanel'>
         <header className='header'>
-          {text}
+          {title}
         </header>
-        {!!imageSource && <>
+        {!!selectedCity && <>
           <img className='cityPhoto' src={imageSource} />
           <span className='cityLabel'>{selectedCity}</span>
         </>}
