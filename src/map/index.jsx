@@ -1,18 +1,39 @@
-import React, {useRef, useEffect} from 'react'
+import React, {useRef, useEffect, useState} from 'react'
 import * as d3 from 'd3'
 import { positionText } from './utils.js'
-import './styles.css'
+import './styles.scss'
+
+const getWindowDimensions = () => {
+  const { innerWidth: width, innerHeight: height } = window
+  return {
+    width: width - 10,
+    height: height - 10,
+  }
+}
+const useWindowDimensions = () => {
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  )
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions())
+    }
+  window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+  return windowDimensions
+}
 
 function Map({
   cities, 
   routes, 
   worldmap,
   setSelectedCity,
+  setSelectedRoute,
 }) {
   const d3Container = useRef(null)
 
-  const w = 1200
-  const h = 700
+  const { height: h, width: w } = useWindowDimensions()
   
   useEffect(() => {
     if (d3Container.current) {
@@ -24,8 +45,9 @@ function Map({
 
       let projection = d3.geoMercator()
         .translate([w/2, h/2])
-        .scale(1180)
-        .center([-6,46])
+        // .scale(1180)
+        .scale(w-100)
+        .center([-8,46])
       let path = d3.geoPath().projection(projection)
 
       // draw map
@@ -73,9 +95,27 @@ function Map({
           return projection([routes[i + 1].Longitude, routes[i + 1].Lattitude])[1]
         }
       })
-      .style('stroke', '#fff')
+      .style('stroke',  (d, i) => {
+        if (i + 1 < routes.length) {
+          return routes[i + 1]?.transport === 'Flight' ? '#dc140a' : 'teal'
+        }
+      })
       .style('stroke-width', 2)
       .style('stroke-dasharray', 2)
+      .on('mouseover', function (from, i) {
+        const to = routes[i + 1]
+        setSelectedRoute(`${to.transport} from ${from.City} to ${to.City} `)
+        d3.select(this)
+        .style('stroke-width', 3)
+        .style('stroke-dasharray', "2px 0")
+      })
+      .on('mouseout', function (d) {
+        const route = d3.select(this)
+        setTimeout(() => {
+          route.style('stroke-width', 2)
+          .style('stroke-dasharray', 2)
+        }, 1000)
+      })
     }
 
   const writeCitiNamesLabels = (g, formattedCities, projection) => {
@@ -89,10 +129,14 @@ function Map({
       .attr("class", "labels")
       .on('mouseover', function (d) {
         setSelectedCity(d.City)
-        d3.select(this).style("font-weight", 600)
+        d3.select(this)
+        .style("font-weight", 500)
+        .style("font-size", 14)
       })
       .on('mouseout', function (d) {
-        d3.select(this).style("font-weight", 400)
+        d3.select(this)
+        .style("font-weight", 400)
+        .style("font-size", 10)
       })
     }
       

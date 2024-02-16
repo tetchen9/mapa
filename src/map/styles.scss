@@ -1,5 +1,5 @@
 .continent {
-	fill: #dfdfdf;
+	fill: #fefefe;
 	stroke: #39A7FF;
 	stroke-width: 0.5;
 	margin: 0 auto;
@@ -37,6 +37,12 @@
 
 .line {
 	stroke: '#fff';
+	stroke-width: 1;
+	stroke-dasharray: 2;
+}
+
+.line-flight {
+	stroke: teal;
 	stroke-width: 1;
 	stroke-dasharray: 2;
 }

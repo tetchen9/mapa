@@ -1,0 +1,52 @@
+
+.header {
+	margin: 0.4rem 0 1rem;
+	color: #1E5887;
+	font-size: 2rem;
+}
+
+.leftPanel {
+	position: absolute;
+	top: 1em;
+	left: 3rem;
+	width: 710px;
+}
+
+.cityCard {
+	display: flex;
+}
+
+.cityPhoto {
+	/* width: 400px; */
+	height: 50vh;
+	aspect-ratio: initial;
+	/* width: 45vw;
+	height: 42vh; */
+	object-fit: cover;
+	float: left;
+	border: 1px solid #39A7FF;
+	border-radius: 1em;
+}
+
+.cityLabel {
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+	float: left;
+	color: #1E5887;
+	margin: 0 0.6rem;
+	font-size: 2rem;
+}
+
+.routeLabel {
+	margin: 1rem 0;
+}
+
+.cityNotes {
+	max-width: 350px;
+}
+
+.description {
+	position: fixed;
+	bottom: 2rem;
+	left: 3rem;
+}
