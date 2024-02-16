@@ -1,42 +1,43 @@
-City,Longitude,Lattitude
-Abu Dhabi, 54.366667, 24.466667, flight, 7
-Frankfurt am Main,8.68417,50.11552
-Heidelberg,8.71666,49.41666
-Koblenz,7.59777,50.35972
-Cochem,7.166667,50.146944
-Frankfurt am Main,8.68417,50.11552
-Rothenburg ob der Tauber,10.183333,49.38333
-Bamberg,10.886944,49.891389
-Leipzig,12.37129,51.33962
-Wernigerode,10.785278,51.835
-Quedlinburg,11.147222,51.79166
-Goslar,10.43,51.90722
-Zutphen,6.195,52.14
-Bremen,8.80777,53.07516
-Hamburg,10.01534,53.57532
-Berlin,13.41053,52.52437
-Dresden,13.44,51.03
-Meissen,13.48333,51.16666
-Dresden,13.44,51.03
-Görlitz,14.98722,51.15277
-Bautzen,14.42416,51.18138
-Dresden,13.44,51.03
-Prague,14.42076,50.08804
-Bergamo,9.67,45.695
-Lecco,9.4,45.85
-Mantua,10.791667,45.15638
-Venezia,12.335833,45.4375
-Milano,9.19,45.466944
-Sevilla,-5.97317,37.38283
-Malaga,-4.42034,36.72016
-Cádiz,-6.2975,36.535
-Faro,-7.935,37.016111
-Sagres,-8.939,37.01
-Lagos,-8.672778,37.10277
-Lisboa,-9.13333,38.71667
-São Miguel,-25.495,37.77861
-Flores,-31.199167,39.44361
-Faial,-28.704722,38.5825
-Sintra,-9.388333,38.79916
-Lisboa,-9.13333,38.71667
-Abu Dhabi, 54.366667, 24.466667
+City,Longitude,Lattitude,transport
+Abu Dhabi,54.366667,24.466667,Flight
+Frankfurt am Main,8.68417,50.11552,Flight
+Heidelberg,8.71666,49.41666,Train
+Koblenz,7.59777,50.35972,Train
+Cochem,7.166667,50.146944,Train
+Frankfurt am Main,8.68417,50.11552,Train
+Rothenburg ob der Tauber,10.183333,49.38333,Train
+Bamberg,10.886944,49.891389,Train
+Leipzig,12.37129,51.33962,Train
+Wernigerode,10.785278,51.835,Train
+Quedlinburg,11.147222,51.79166,Train
+Goslar,10.43,51.90722,Train
+Zutphen,6.195,52.14,Train
+Bremen,8.80777,53.07516,Train
+Hamburg,10.01534,53.57532,Train
+Berlin,13.41053,52.52437,Train
+Dresden,13.44,51.03,Train
+Meissen,13.48333,51.16666,Train
+Dresden,13.44,51.03,Train
+Görlitz,14.98722,51.15277,Train
+Bautzen,14.42416,51.18138,Train
+Dresden,13.44,51.03,Train
+Prague,14.42076,50.08804,Bus
+Bergamo,9.67,45.695,Flight
+Lecco,9.4,45.85,Train
+Mantua,10.791667,45.15638,Train
+Venezia,12.335833,45.4375,Train
+Milano,9.19,45.466944,Blablacar
+Sevilla,-5.97317,37.38283,Flight
+Malaga,-4.42034,36.72016,Blablacar
+Cádiz,-6.2975,36.535,Train and Blablacar
+Faro,-7.935,37.016111,Blablacar
+Sagres,-8.939,37.01,Train and Bus
+Lagos,-8.672778,37.10277,Bus
+Lisboa,-9.13333,38.71667,Blablacar
+São Miguel,-25.495,37.77861,Flight
+Flores,-31.199167,39.44361,Flight
+Faial,-28.704722,38.5825,Flight
+Lisboa,-9.13333,38.71667,Flight
+Sintra,-9.388333,38.79916,Train
+Lisboa,-9.13333,38.71667,Train
+Abu Dhabi, 54.366667, 24.466667,Flight
