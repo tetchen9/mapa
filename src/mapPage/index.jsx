@@ -50,9 +50,12 @@ function MapPage() {
 
   const countriesStats = new Set(cities?.map(city => city.Name))
 
-  const description = !!routesStats && <div className='description'>
+  const tripSummary = !!routesStats && <div className='description'>
     <div>{`78 days, ${countriesStats.size} countries, ${citiesStats} towns and islands`}</div>
-    {`Transportaion on the trip: ${routesStats.Flight} flights, ${routesStats.Train} trains, ${routesStats.Blablacar} Blablacar rides, ${routesStats.Bus} bus rides, rented a car once`}
+    {`${routesStats.Flight} flights, ${routesStats.Train} trains, ${routesStats.Blablacar} Blablacar rides, ${routesStats.Bus} bus rides, rented a car once`}
+    <div className='routeLabel'>
+      {!!selectedRoute ? selectedRoute : 'Hover over a route to see details'}
+    </div>
   </div>
 
   const getNotes = (selectedCity) => {
@@ -69,15 +72,12 @@ function MapPage() {
         <header className='header'>
           {title}
         </header>
-        {description}
+        {tripSummary}
         {!!selectedCity && <div className='cityCard'>
           <img className='cityPhoto' src={imageSource} />
           <span className='cityLabel'>{selectedCity}</span>
           <div className='cityNotes'>{getNotes(selectedCity)}</div>
         </div>}
-        <div className='routeLabel'>
-          {!!selectedRoute ? selectedRoute : 'Hover over a route to see details'}
-        </div>
       </section>
       <Map
         cities={cities}

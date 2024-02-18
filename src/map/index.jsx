@@ -149,16 +149,18 @@ function Map({
       .attr("d", path)
   }
 
-  return (
+  return (<>
     <svg
         className="d3-component"
         width={w}
         height={h}
         ref={d3Container}
         viewBox={`0 0 ${w} ${h}`}
-    >
+        >
       <g></g>
     </svg>
+    <div className='placeholder'>Please open the map on a laptop</div>
+  </>
   )
 
 }
