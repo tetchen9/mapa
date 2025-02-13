@@ -8,18 +8,19 @@ The list of cities and routes between cities is loaded in csv format.
 Clicking on a town shows the most memorable photo.
 Clicking on the route shows transport details.
 
-<img width="1190" alt="Map of a trip to Europe" src="https://github.com/user-attachments/assets/c82c7c89-abd5-4250-b011-fd289045904e" />
+<img width="1037" alt="Map of a trip to Europe" src="https://github.com/user-attachments/assets/cc0851cc-a5c0-4dc4-ab50-4896a021e5ce" />
+
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-# `yarn start`
+`yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-# `yarn test`
+`yarn test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
